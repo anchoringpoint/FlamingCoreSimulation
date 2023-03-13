@@ -82,6 +82,7 @@ public class BallBouncer : MonoBehaviour
         
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
@@ -90,5 +91,19 @@ public class BallBouncer : MonoBehaviour
             pickUpCounter++;
             SetCountText();
         }
+        if (other.gameObject.CompareTag("ReversePlayerDirTrap"))
+        {
+            
+            other.gameObject.SetActive(false);
+            minVelocity = -minVelocity;
+        }
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+            collision.gameObject.SetActive(false);
     }
 }
