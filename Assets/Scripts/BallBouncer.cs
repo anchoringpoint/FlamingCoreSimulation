@@ -53,18 +53,18 @@ public class BallBouncer : MonoBehaviour
     private void Update()
     {
         lastFrameVelocity = rb.velocity;
-        Debug.Log(lastFrameVelocity.ToString());
+   
         if(Input.GetMouseButtonDown(0))
         {
             GetComponent<LineRenderer>().enabled = true;
             LastMousePos = Input.mousePosition;
-            Debug.Log("LastMousePos"+LastMousePos.ToString());
+  
             Time.timeScale = 0.01f;
         }
         if (Input.GetMouseButton(0))
         {
             NowMousePos = Input.mousePosition;
-            Debug.Log("NowMousePos"+NowMousePos.ToString());
+       
             distance = NowMousePos - LastMousePos;
             //rb.AddForce(new Vector3(distance.x, 0, distance.y) *(5f));
             Vector3 velocity=new Vector3(distance.x, 0, distance.y) *(minVelocity*0.03f);
@@ -97,7 +97,7 @@ public class BallBouncer : MonoBehaviour
             other.gameObject.SetActive(false);
             minVelocity = -minVelocity;
         }
-
+    
 
     }
 
