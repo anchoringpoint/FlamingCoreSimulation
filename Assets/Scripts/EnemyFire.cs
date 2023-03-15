@@ -17,17 +17,12 @@ public class EnemyFire : MonoBehaviour
 
         
     }
-
-    private void FixedUpdate()
-    {
-
-        
-    }
+    
 
     void Fire()
     {
         Debug.Log("Fire");
-        GameObject fire = Instantiate(firePrefab, firePoint.position, firePoint.rotation);
+        GameObject fire = Instantiate(firePrefab, firePoint.position+new Vector3(3.5f,0,0), firePoint.rotation);
         fire.GetComponent<Rigidbody>().velocity = fire.transform.forward * 10;
         if(this.gameObject.activeSelf==false)
         {

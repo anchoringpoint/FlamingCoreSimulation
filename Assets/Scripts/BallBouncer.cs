@@ -50,6 +50,10 @@ public class BallBouncer : MonoBehaviour
         rb.velocity = velocity;
         this.isGhost = isGhost;
     }
+    public bool isghost()
+    {
+        return this.isGhost;
+    }
     private void Update()
     {
         lastFrameVelocity = rb.velocity;
@@ -58,13 +62,11 @@ public class BallBouncer : MonoBehaviour
         {
             GetComponent<LineRenderer>().enabled = true;
             LastMousePos = Input.mousePosition;
-  
             Time.timeScale = 0.01f;
         }
         if (Input.GetMouseButton(0))
         {
             NowMousePos = Input.mousePosition;
-       
             distance = NowMousePos - LastMousePos;
             //rb.AddForce(new Vector3(distance.x, 0, distance.y) *(5f));
             Vector3 velocity=new Vector3(distance.x, 0, distance.y) *(minVelocity*0.03f);
